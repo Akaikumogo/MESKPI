@@ -22,6 +22,8 @@ const Schedule = lazy(() => import('./pages/Schedule/Schedule'));
 const MonthlySchedule = lazy(
   () => import('./pages/Schedule/DayMonthController')
 );
+const Control = lazy(() => import('./pages/Controll/Control'));
+const ControlDetail = lazy(() => import('./pages/Controll/ControlDetail'));
 const NotFoundPage = lazy(() => import('./pages/NotFounds/NotFoundPage'));
 const NotFoundModule = lazy(() => import('./pages/NotFounds/NotFoundModule'));
 
@@ -53,6 +55,14 @@ export const routes: RouteObject[] = [
           {
             path: 'schedule/:yyyymmdd',
             element: withSuspense(MonthlySchedule)
+          },
+          {
+            path: 'control',
+            element: withSuspense(Control)
+          },
+          {
+            path: 'control/:id',
+            element: withSuspense(ControlDetail)
           },
           {
             path: '*',
